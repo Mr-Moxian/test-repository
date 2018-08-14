@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test</title>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+		<button onclick="onMyClick()">点击</button>
+</body>
+<script type="text/javascript">
+	function onMyClick(){
+		$.ajax({
+			url:'/sts/iocAction.action',
+			timeout : 1800000,
+			type:'POST',
+			dataType: "json",//预期服务器返回的数据类型
+	        success: function (result) {
+	    	    if(result.success){
+	    	    }
+	            console.log(result);//打印服务端返回的数据(调试用)
+	        },
+	        error : function(res) {
+	    	    alert('error');
+	        }
+		});
+		
+	}
+</script>
+</html>
